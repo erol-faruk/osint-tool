@@ -36,8 +36,8 @@
 <label>Görsel URL (opsiyonel):</label>
 <input id="img" type="text" placeholder="https://.../resim.jpg">
 
-<button id="buildBtn" class="btn">🔎 Paneli Oluştur</button>
-<button id="clearBtn" class="btn">🧹 Temizle</button>
+<button class="btn" onclick="buildPanel()">🔎 Paneli Oluştur</button>
+<button class="btn" onclick="clearPanel()">🧹 Temizle</button>
 
 <div id="panel"></div>
 
