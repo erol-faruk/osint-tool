@@ -1,48 +1,57 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>OSINT Süper Tool — Mobil</title>
-<style>
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-    background: #0f172a;
-    color: #e6eef8;
-    padding: 12px;
-  }
-  h1 {text-align:center;font-size:22px;margin:0 0 10px 0;}
-  label {display:block;margin-top:10px;color:#a9bfd6;font-size:14px;}
-  input[type=text]{
-    width:100%;padding:12px;border-radius:10px;
-    border:1px solid #233046;background:#071124;color:#e6eef8;font-size:15px;
-  }
-  .btn {display:inline-flex;align-items:center;gap:6px;
-    background:#1e293b;color:#e6eef8;border:none;
-    padding:12px 14px;border-radius:10px;margin:6px 6px 0 0;font-size:15px;
-    cursor:pointer;transition:background 0.2s;}
-  .btn:hover{background:#334155}
-  .section{margin-top:18px;}
-  .section h3{margin-bottom:6px;font-size:16px;color:#cbd5e1;}
-  footer{text-align:center;font-size:12px;color:#9fb7d6;margin-top:16px;}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>OSINT Süper Tool — Mobil</title>
+
+  <!-- Basit CSP meta (ilk aşama). İleride Cloudflare'den header ile sıkılaştır. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; connect-src 'self' https://api.ipinfo.io https://www.googleapis.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline';">
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      background: #0f172a;
+      color: #e6eef8;
+      padding: 12px;
+    }
+    h1 { text-align:center; font-size:22px; margin:0 0 10px 0; }
+    label { display:block; margin-top:10px; color:#a9bfd6; font-size:14px; }
+    input[type=text] {
+      width:100%; padding:12px; border-radius:10px;
+      border:1px solid #233046; background:#071124; color:#e6eef8; font-size:15px;
+    }
+    .btn {
+      display:inline-flex; align-items:center; gap:6px;
+      background:#1e293b; color:#e6eef8; border:none;
+      padding:12px 14px; border-radius:10px; margin:6px 6px 0 0; font-size:15px;
+      cursor:pointer; transition:background 0.2s;
+    }
+    .btn:hover { background:#334155 }
+    .section { margin-top:18px; }
+    .section h3 { margin-bottom:6px; font-size:16px; color:#cbd5e1; }
+    footer { text-align:center; font-size:12px; color:#9fb7d6; margin-top:16px; }
+    .note { margin-top:10px; font-size:13px; color:#9fb7d6; }
+  </style>
 </head>
 <body>
-<h1>📱 OSINT Süper Tool</h1>
+  <h1>📱 OSINT Süper Tool</h1>
 
-<label>Metin (isim/domain/IP/kullanıcı):</label>
-<input id="q" type="text" placeholder="example.com / kullanıcı adı / anahtar kelime">
+  <label>Metin (isim/domain/IP/kullanıcı):</label>
+  <input id="q" type="text" placeholder="example.com / kullanıcı adı / anahtar kelime">
 
-<label>Görsel URL (opsiyonel):</label>
-<input id="img" type="text" placeholder="https://.../resim.jpg">
+  <label>Görsel URL (opsiyonel):</label>
+  <input id="img" type="text" placeholder="https://.../resim.jpg">
 
-<button id="buildBtn" class="btn">🔎 Paneli Oluştur</button>
-<button id="clearBtn" class="btn">🧹 Temizle</button>
+  <button id="buildBtn" class="btn" type="button">🔎 Paneli Oluştur</button>
+  <button id="clearBtn" class="btn" type="button">🧹 Temizle</button>
 
-<div id="panel"></div>
+  <div id="panel"></div>
 
-<footer>Not: Onion linkleri için Tor Browser gerekir. Popup engelleyiciye dikkat.</footer>
+  <footer>Not: Onion linkleri için Tor Browser gerekir. Popup engelleyiciye dikkat.</footer>
 
-<script src="script.js"></script>
+  <!-- script'i defer ile yükleyerek DOM tamamen yüklendikten sonra çalışmasını sağlıyoruz -->
+  <script src="script.js" defer></script>
 </body>
 </html>
