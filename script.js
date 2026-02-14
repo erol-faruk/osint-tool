@@ -92,3 +92,29 @@ function clearPanel() {
   document.getElementById('img').value = '';
   document.getElementById('panel').innerHTML = '';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const buildBtn = document.getElementById('buildBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const qInput = document.getElementById('q');
+
+  if (!buildBtn) {
+    console.error("Element bulunamadı: #buildBtn");
+  } else {
+    buildBtn.addEventListener('click', buildPanel);
+  }
+
+  if (!clearBtn) {
+    console.error("Element bulunamadı: #clearBtn");
+  } else {
+    clearBtn.addEventListener('click', clearPanel);
+  }
+
+  if (qInput) {
+    qInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        buildPanel();
+      }
+    });
+  }
+});
